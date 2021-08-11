@@ -282,7 +282,7 @@ export const AddPatientForm: React.FC<Props> = ({ onSubmit, onCancel }) => {
         rowLetter: 'A',
         name: '',
         //should do validation check to ensure that the ssn is kept within 6 alphanumeric characters
-        ssn: '',
+        confirmNumber: '',
         dateOfBirth: '',
       }}
       onSubmit={onSubmit}
@@ -292,8 +292,8 @@ export const AddPatientForm: React.FC<Props> = ({ onSubmit, onCancel }) => {
         if (!values.name) {
           errors.name = requiredError;
         }
-        if (!values.ssn) {
-          errors.ssn = requiredError;
+        if (!values.confirmNumber) {
+          errors.confirmNumber = requiredError;
         }
         if (!values.dateOfBirth) {
           errors.dateOfBirth = requiredError;
@@ -311,9 +311,9 @@ export const AddPatientForm: React.FC<Props> = ({ onSubmit, onCancel }) => {
               component={TextField}
             />
             <Field
-              label="Confirmation Number"
-              placeholder="SSN"
-              name="ssn"
+              label="Booking Confirmation"
+              placeholder="6-character alphanumeric"
+              name="confirmNumber"
               component={TextField}
             />
             <Field

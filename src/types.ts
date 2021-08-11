@@ -19,7 +19,7 @@ export interface Patient {
   rowLetter: string;
   travelClass: travelClass;
   dietaryRequirements: string;
-  ssn?: string;
+  confirmNumber?: string;
   entries: Entry[];
   dateOfBirth?: string;
   rating?: number;

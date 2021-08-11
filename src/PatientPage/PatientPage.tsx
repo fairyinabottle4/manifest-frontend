@@ -56,7 +56,7 @@ const PatientData: React.FC = () => {
       }
     };
 
-    if (patients[id] && patients[id].ssn) {
+    if (patients[id] && patients[id].confirmNumber) {
       setPatient(patients[id]);
     } else {
       void fetchPatient();
@@ -132,7 +132,7 @@ const PatientData: React.FC = () => {
             {/* <Card.Content description={patient.occupation} /> */}
             <Card.Content extra>
               {/* <Icon name={genderIcon(patient.gender)} /> */}
-              {patient.ssn}
+              {patient.confirmNumber}
             </Card.Content>
           </Card>
           {totalEntries > 0 && (
