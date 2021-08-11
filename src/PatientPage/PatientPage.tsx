@@ -9,10 +9,10 @@ import {
   Button
 } from 'semantic-ui-react';
 
-import { Patient, Entry, Diagnosis } from '../types';
+import { Patient, Entry, Diagnosis, BaseEntry } from '../types';
 import { apiBaseUrl } from '../constants';
 import { useStateValue, setDiagnosisList, addEntry } from '../state';
-import EntryDetails from '../components/EntryDetails';
+// import EntryDetails from '../components/EntryDetails';
 import { AddEntryModal } from '../AddPatientModal';
 import { EntryFormValues } from '../AddPatientModal/AddPatientForm';
 
@@ -81,13 +81,13 @@ const PatientData: React.FC = () => {
     return diagnosis[code]?.name;
   };
 
-  const getEntryView = (entry: Entry, lastEntry: boolean) => {
+  const getEntryView = (entry: BaseEntry, lastEntry: boolean) => {
     return (
-      <div key={entry.id}>
+      <div>
         <Header as="h4">{entry.date}</Header>
         <p>{entry.description}</p>
         <Header as="h3">{entry.specialist}</Header>
-        <EntryDetails entry={entry} />
+        {/* <EntryDetails entry={entry} /> */}
         {entry.diagnosisCodes && (
           <>
             <Header as="h4">Diagnoses</Header>

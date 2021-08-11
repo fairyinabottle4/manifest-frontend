@@ -20,13 +20,13 @@ export interface Patient {
   travelClass: travelClass;
   dietaryRequirements: string;
   confirmNumber?: string;
-  entries: Entry[];
+  entries: BaseEntry[];
   dateOfBirth?: string;
   rating?: number;
 }
 
 
-interface BaseEntry {
+export interface BaseEntry {
   id: string;
   description: string;
   date: string;
