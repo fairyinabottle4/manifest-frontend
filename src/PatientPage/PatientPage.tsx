@@ -59,7 +59,7 @@ const PatientData: React.FC = () => {
     return (
       <div>
         <Header as="h4">{entry.date}</Header>
-        <p>{entry.description}</p>
+        <p>{entry.travelClass}</p>
         <Header as="h3">{entry.route}</Header>
         {entry.diagnosisCodes && (
           <>

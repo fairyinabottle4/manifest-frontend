@@ -28,7 +28,7 @@ export interface Patient {
 
 export interface BaseEntry {
   id: string;
-  description: string;
+  travelClass: travelClass;
   date: string;
   route: string;
   diagnosisCodes?: Array<Diagnosis["code"]>;
