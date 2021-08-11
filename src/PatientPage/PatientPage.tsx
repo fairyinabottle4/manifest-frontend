@@ -13,7 +13,7 @@ import { apiBaseUrl } from '../constants';
 import { useStateValue, setDiagnosisList } from '../state';
 
 const PatientData: React.FC = () => {
-  const [{ patients, diagnosis }, dispatch] = useStateValue();
+  const [{ patients }, dispatch] = useStateValue();
   const [patient, setPatient] = useState<Patient | undefined>();
 
   const { id } = useParams<{ id: string }>();
@@ -50,29 +50,12 @@ const PatientData: React.FC = () => {
     }
   }, [id]);
 
-
-  const getDiagnosisDescription = (code: string): string => {
-    return diagnosis[code]?.name;
-  };
-
   const getEntryView = (entry: BaseEntry, lastEntry: boolean) => {
     return (
       <div>
         <Header as="h4">{entry.date}</Header>
         <p>{entry.travelClass}</p>
         <Header as="h3">{entry.route}</Header>
-        {entry.diagnosisCodes && (
-          <>
-            <Header as="h4">Diagnoses</Header>
-            <ul>
-              {entry.diagnosisCodes.map((code) => (
-                <li key={code}>
-                  {code} {getDiagnosisDescription(code)}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
         {!lastEntry && <Divider section />}
       </div>
     );
