@@ -60,7 +60,7 @@ const PatientData: React.FC = () => {
       <div>
         <Header as="h4">{entry.date}</Header>
         <p>{entry.description}</p>
-        <Header as="h3">{entry.specialist}</Header>
+        <Header as="h3">{entry.route}</Header>
         {entry.diagnosisCodes && (
           <>
             <Header as="h4">Diagnoses</Header>
