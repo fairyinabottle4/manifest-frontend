@@ -6,27 +6,13 @@ import {
   Segment,
   Divider,
   Card,
-  Button
 } from 'semantic-ui-react';
 
-import { Patient, Entry, Diagnosis, BaseEntry } from '../types';
+import { Patient, Diagnosis, BaseEntry } from '../types';
 import { apiBaseUrl } from '../constants';
-import { useStateValue, setDiagnosisList, addEntry } from '../state';
-// import EntryDetails from '../components/EntryDetails';
-import { AddEntryModal } from '../AddPatientModal';
-import { EntryFormValues } from '../AddPatientModal/AddPatientForm';
+import { useStateValue, setDiagnosisList } from '../state';
 
 const PatientData: React.FC = () => {
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string | undefined>();
-
-  const openModal = (): void => setModalOpen(true);
-
-  const closeModal = (): void => {
-    setModalOpen(false);
-    setError(undefined);
-  };
-
   const [{ patients, diagnosis }, dispatch] = useStateValue();
   const [patient, setPatient] = useState<Patient | undefined>();
 
@@ -64,18 +50,6 @@ const PatientData: React.FC = () => {
     }
   }, [id]);
 
-  // const genderIcon = (gender: Gender): SemanticICONS => {
-  //   switch (gender) {
-  //     case 'male':
-  //       return 'mars';
-
-  //     case 'female':
-  //       return 'venus';
-
-  //     default:
-  //       return 'genderless';
-  //   }
-  // };
 
   const getDiagnosisDescription = (code: string): string => {
     return diagnosis[code]?.name;
@@ -87,7 +61,6 @@ const PatientData: React.FC = () => {
         <Header as="h4">{entry.date}</Header>
         <p>{entry.description}</p>
         <Header as="h3">{entry.specialist}</Header>
-        {/* <EntryDetails entry={entry} /> */}
         {entry.diagnosisCodes && (
           <>
             <Header as="h4">Diagnoses</Header>
@@ -108,28 +81,12 @@ const PatientData: React.FC = () => {
   //entries is optional hence the question mark
   const totalEntries = patient?.entries?.length ?? 0;
 
-  const submitNewEntry = async (values: EntryFormValues) => {
-    try {
-      const { data: newEntry } = await axios.post<Entry>(
-        `${apiBaseUrl}/patients/${values.id}/entries`,
-        values
-      );
-      dispatch(addEntry(values.id, newEntry));
-      patient && patient.entries.push(newEntry);
-      closeModal();
-    } catch (e) {
-      console.error(e.response.data);
-      setError(e.response.data.error);
-    }
-  };
-
   return (
     <>
       {patient && (
         <section>
           <Card>
             <Card.Content header={patient.name} />
-            {/* <Card.Content description={patient.occupation} /> */}
             <Card.Content extra>
               {/* <Icon name={genderIcon(patient.gender)} /> */}
               {patient.confirmNumber}
@@ -137,7 +94,7 @@ const PatientData: React.FC = () => {
           </Card>
           {totalEntries > 0 && (
             <>
-              <h2>entries</h2>
+              <h2>Recent Flights</h2>
               <Segment>
                 {patient.entries.map((entry, index) =>
                   getEntryView(entry, index + 1 === totalEntries)
@@ -145,15 +102,6 @@ const PatientData: React.FC = () => {
               </Segment>
             </>
           )}
-          <AddEntryModal
-            modalOpen={modalOpen}
-            onSubmit={submitNewEntry}
-            error={error}
-            onClose={closeModal}
-            patientId={patient.id}
-          />
-          <Button onClick={() => openModal()}>Add New Entry</Button>
-
         </section>
       )}
     </>
