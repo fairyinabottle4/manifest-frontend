@@ -1,12 +1,12 @@
 import React from 'react';
 import { ErrorMessage, Field, FieldProps, FormikProps } from 'formik';
 import { Dropdown, DropdownProps, Form } from 'semantic-ui-react';
-import { Diagnosis, EntryType, HealthCheckRating, travelClass } from '../types';
+import { Diagnosis, travelClass } from '../types';
 
 // structure of a single option
 export type TypeOption = {
-  value: EntryType | HealthCheckRating | travelClass | number | string;
-  label: string | EntryType | number;
+  value: travelClass | number | string;
+  label: string | number;
 };
 
 // props for select field component
@@ -75,7 +75,7 @@ export const TextField: React.FC<TextProps> = ({
 );
 
 /*
-  for exercises 9.24.-
+  for exercises 9.24.- Actually all these can go also
 */
 interface NumberProps extends FieldProps {
   label: string;
