@@ -60,8 +60,10 @@ const App = () => {
         <Router>
           <Container>
             <Header as="h1">Broadwing Airlines</Header>
-            <h2>{flightInfo.flightNumber}</h2>
-            <p>{flightInfo.origin}-{flightInfo.destination}</p>
+            <div style={{display: 'flex'}}>
+              <h2>{flightInfo.flightNumber}</h2>
+              <p style={{marginLeft: '5px', marginTop: '8px'}}>{flightInfo.origin}-{flightInfo.destination}</p>
+            </div>
             <Button as={Link} to="/" primary>
               Home
             </Button>
