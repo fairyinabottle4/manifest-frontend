@@ -108,32 +108,35 @@ const App = () => {
     >
       {() => {
         return (
-          <Form>
-            <Field
-            label="Origin"
-            placeholder="3 letter IATA airport code"
-            name="origin"
-            component={TextField}
-          />
-          <Field
-            label="Destination"
-            placeholder="3 letter IATA airport code"
-            name="destination"
-            component={TextField}
-          />
-          <Field
-            label="Flight Number"
-            placeholder="Flight Number"
-            name="flightNumber"
-            component={TextField}
-          />
-          <SelectField 
-            label="Aircraft type" name="aircraftType" options={aircraftTypes} />
-          <Button type="submit" color="green">
-            Continue
-          </Button>
+          <div style={flightStyles}>
+            <Header as="h1">Broadwing Airlines</Header>
+            <Form>
+              <Field
+                label="Origin"
+                placeholder="3 letter IATA airport code"
+                name="origin"
+                component={TextField}
+                />
+              <Field
+                label="Destination"
+                placeholder="3 letter IATA airport code"
+                name="destination"
+                component={TextField}
+              />
+              <Field
+                label="Flight Number"
+                placeholder="Flight Number"
+                name="flightNumber"
+                component={TextField}
+              />
+              <SelectField 
+                label="Aircraft type" name="aircraftType" options={aircraftTypes} />
+              <Button type="submit" color="green">
+                Continue
+              </Button>
+            </Form>
 
-          </Form>
+          </div>
         );
       }}
     
@@ -144,3 +147,9 @@ const App = () => {
 };
 
 export default App;
+
+
+const flightStyles = {
+  marginTop: "20%",
+  marginLeft: "45%",
+};
