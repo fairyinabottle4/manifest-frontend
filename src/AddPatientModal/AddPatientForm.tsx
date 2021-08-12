@@ -52,10 +52,14 @@ for (let i = 41; i < 62; i++) {
 const econRowLetters: TypeOption[] = [{ value: "A", label: "A"}, { value: "B", label: "B"}, { value: "C", label: "C"}, {value: "D", label: "D"}, {value: "E", label:"E"},
                                       {value: "G", label: "G"}, {value: "H", label: "H"}, {value: "J", label: "J"}, {value: "K", label: "K"}];
 
-const dietaryRequirements: TypeOption[] = [{value:"", label:""},{value: "BBML", label: "BBML"}, {value: "CHML", label:"CHML"}, {value:"HNML", label:"KSML"}, {value:"KSRFM", label:"KSRFM"}, {value:"MOML", label:"MOML"},
-                                      {value:"AVML", label:"AVML"}, {value:"VJML", label:"VJML"}, {value:"VOML",label:"VGML"},{value:"VLML",label:"VLML"}, {value:"BLML",label:"BLML"}, 
-                                      {value:"DBML", label:"DBML"}, {value:"FPML", label:"FPML"}, {value:"GFML", label:"GFML"}, {value:"LFML", label:"LFML"}, {value:"NLML", label:"NLML"}, 
-                                      {value:"LSML", label:"LSML"}, {value:"MAMLA", "label": "MAMLA"}, {value:"NFMLA", label:"NFMLA"}, {value: "NSFML", label:"NSFML"}, {value:"SFML", label:"SFML"}];
+const dietaryRequirements: TypeOption[] = [{value:"", label:""},{value: "BBML", label: "BBML Baby Meal"}, {value: "CHML", label:"CHML Child Meal"}, {value:"HNML", label:"HNML Hindu Non-Vegetarian Meal"},
+                                      {value:"KSML", label:"KSML Kosher Meal"}, {value:"KSRFM", label:"KSRFM Kosher Refreshment"}, {value:"MOML", label:"MOML Muslim Meal"},
+                                      {value:"AVML", label:"AVML Vegetarian Indian Meal"}, {value:"VJML", label:"VJML Vegetarian Jain Meal"}, {value:"VOML",label:"VOML Vegetarian Oriental Meal"},
+                                      {value:"VGML", label:"VGML Vegetarian Vegan Meal"}, {value:"VLML",label:"VLML Vegetarian Lacto-Ovo Meal"}, {value:"BLML",label:"BLML Bland Meal"}, 
+                                      {value:"DBML", label:"DBML Diabetic Meal"}, {value:"FPML", label:"FPML Fruit Platter"}, {value:"GFML", label:"GFML Gluten Intolerant Meal"}, 
+                                      {value:"LFML", label:"LFML Low Fat Meal"}, {value:"NLML", label:"NLML Low Lactose Meal"}, {value:"LSML", label:"LSML Low Salt Meal"}, 
+                                      {value:"MAMLA", "label": "MAMLA Minimal Allergen Meal"}, {value:"NFMLA", label:"NFMLA Non-Strict Nut Free Meal"}, {value: "NSFML", label:"NSFML Non Seafood Meal"}, 
+                                      {value:"SFML", label:"SFML Seafood Meal"}];
 
 const classOptions: TypeOption[] = [
   { value: travelClass.First, label: 'First' },
