@@ -6,11 +6,13 @@ import {
   Segment,
   Divider,
   Card,
+  Icon
 } from 'semantic-ui-react';
 
-import { Patient, Diagnosis, BaseEntry } from '../types';
+import { Patient, Diagnosis, BaseEntry, FrequentFlyer} from '../types';
 import { apiBaseUrl } from '../constants';
 import { useStateValue, setDiagnosisList } from '../state';
+import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
 const PatientData: React.FC = () => {
   const [{ patients }, dispatch] = useStateValue();
@@ -61,6 +63,20 @@ const PatientData: React.FC = () => {
     );
   };
 
+  const freqFlyerIcon = (status: FrequentFlyer | undefined): SemanticICONS => {
+    switch (status) {
+      case 'silver':
+        return 'chess knight';
+      case 'gold':
+        return 'chess rook';
+      case 'platinum':
+        return 'chess king';
+      default:
+        return 'square full';    
+    }
+  };
+
+
   //entries is optional hence the question mark
   const totalEntries = patient?.entries?.length ?? 0;
 
@@ -71,7 +87,7 @@ const PatientData: React.FC = () => {
           <Card>
             <Card.Content header={patient.name} />
             <Card.Content extra>
-              {/* <Icon name={genderIcon(patient.gender)} /> */}
+              <Icon name={freqFlyerIcon(patient.frequentFlyer)} />
               {patient.confirmNumber}
             </Card.Content>
           </Card>

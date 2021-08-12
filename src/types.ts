@@ -16,6 +16,7 @@ export interface Patient {
   name: string;
   seatNumber?: string;
   rowNumber: string;
+  frequentFlyer?: FrequentFlyer;
   rowLetter: string;
   travelClass: travelClass;
   dietaryRequirements: string;
@@ -31,6 +32,12 @@ export interface BaseEntry {
   travelClass: travelClass;
   date: string;
   route: string;
+}
+
+export enum FrequentFlyer {
+  Silver = "silver",
+  Gold = "gold",
+  Platinum = "platinum"
 }
 
 
