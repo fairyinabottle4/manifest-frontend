@@ -47,8 +47,14 @@ const App = () => {
 
   const onSubmit = (values: { origin: string; destination: string; aircraftType: string; flightNumber: string}) => {
     setFlightDetails(true);
-    setFlightInfo(values);
-    console.log(values);
+    const newValues = {
+      origin: values.origin.toUpperCase(),
+      destination: values.destination.toUpperCase(),
+      flightNumber: values.flightNumber.substring(0,2).toUpperCase().concat(values.flightNumber.substring(2)),
+      aircraftType: values.aircraftType
+    };
+    setFlightInfo(newValues);
+    console.log(newValues);
   };
 
   const aircraftTypes = [{value: "", label:""},{value:"Boeing 777", label: "Boeing 777"}, 
@@ -95,15 +101,26 @@ const App = () => {
     onSubmit={(values) => onSubmit(values)}
     validate={(values) => {
       const requiredError = 'Field is required';
+      const lengthError = 'IATA Airport code must be exactly 3 characters long';
+      const flightNumLengthError = "Flight number must be 5 or 6 digits long";
       const errors: { [field: string]: string} = {};
       if (!values.origin) {
         errors.origin = requiredError;
       }
       if (!values.destination) {
-        errors.origin = requiredError;
+        errors.destination = requiredError;
       }
       if (!values.aircraftType) {
-        errors.origin = requiredError;
+        errors.aircraftType = requiredError;
+      }
+      if (values.origin.length !== 3) {
+        errors.origin = lengthError;
+      }
+      if (values.destination.length !== 3) {
+        errors.destination = lengthError;
+      }
+      if (values.flightNumber.length > 6 || values.flightNumber.length < 5) {
+        errors.flightNumber = flightNumLengthError;
       }
       return errors;
     }}
