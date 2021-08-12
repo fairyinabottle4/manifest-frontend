@@ -1,41 +1,56 @@
-# Patientor - frontend
+# Passenger Manifest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend repository of the Passenger Manifest webapp. The backend repo can be found [here](https://github.com/fairyinabottle4/manifest-backend). The webapp can be found at
 
-## Available Scripts
 
-In the project directory, you can run:
+* Passenger Manifest is a webapp for airline crew to manage the passengers they have on board. 
+* Crew will first have to enter details about the route, flight number and aircraft type.
+* The manifest of passengers will then be displayed on the home page. Details that will be displayed include
+  * Name
+  * Seat Number
+  * Travel Class
+  * Dietary Requirements
+  * Rating of past experiences with airline
+* Upon clicking the name of the individual passenger, crew will be able to see the following
+  * Booking confirmation number
+  * Frequent Flyer status
+  * Recent flights made with the airline
+* Crew can also manually add passengers to the manifest by adding the 'Add Passenger' button on the home page. 
 
-### `npm install`
+## Future Improvements
 
-Install the project dependencies.
+* Store info in database and pull passenger info from database where applicable. 
+* Differentiate seats and travel class by aircraft type. 
 
-### `npm start`
+## Some screenshots
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Details Entry Page
+<br>
+<br>
+<br>
+<img src="./screenshots/flight_details.png" alt="drawing" width="800"/>
+<br>
+<br>
+<br>
+Home page (Passenger Manifest)
+<br>
+<br>
+<br>
+<img src="./screenshots/manifest.png" alt="drawing" width="800"/>
+<br>
+<br>
+<br>
+Add Passenger Modal
+<br>
+<br>
+<br>
+<img src="./screenshots/add_modal.png" alt="drawing" width="800"/>
+<br>
+<br>
+<br>
+Passenger details
+<br>
+<br>
+<br>
+<img src="./screenshots/passenger_details.png" alt="drawing" width="800"/>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# manifest-frontend2
