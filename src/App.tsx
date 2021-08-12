@@ -129,7 +129,7 @@ const App = () => {
           />
           <SelectField 
             label="Aircraft type" name="aircraftType" options={aircraftTypes} />
-          <Button type="submit" floated="right" color="green">
+          <Button type="submit" color="green">
             Continue
           </Button>
 
