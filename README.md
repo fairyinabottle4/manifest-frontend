@@ -1,6 +1,6 @@
 # Passenger Manifest
 
-This is the frontend repository of the Passenger Manifest webapp. The backend repo can be found [here](https://github.com/fairyinabottle4/manifest-backend). The webapp can be found at
+This is the frontend repository of the Passenger Manifest webapp. The backend repo can be found [here](https://github.com/fairyinabottle4/manifest-backend). The webapp can be found [here](https://broadwing-manifest.herokuapp.com/)
 
 
 * Passenger Manifest is a webapp for airline crew to manage the passengers they have on board. 
@@ -21,6 +21,7 @@ This is the frontend repository of the Passenger Manifest webapp. The backend re
 
 * Store info in database and pull passenger info from database where applicable. 
 * Differentiate seats and travel class by aircraft type. 
+* Containerize with Docker. Currently, there are issues with building linux/amd64 images using Apple Silicon with nodejs 16.
 
 ## Some screenshots
 
