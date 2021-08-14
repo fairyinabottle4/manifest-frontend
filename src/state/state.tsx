@@ -4,12 +4,12 @@ import { Passenger, Diagnosis } from "../types";
 import { Action } from "./reducer";
 
 export type State = {
-  patients: { [id: string]: Passenger };
+  passengers: { [id: string]: Passenger };
   diagnosis: { [id: string]: Diagnosis };
 };
 
 const initialState: State = {
-  patients: {},
+  passengers: {},
   diagnosis: {}
 };
 

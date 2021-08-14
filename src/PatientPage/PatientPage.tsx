@@ -15,7 +15,7 @@ import { useStateValue } from '../state';
 import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
 const PatientData: React.FC = () => {
-  const [{ patients }, dispatch] = useStateValue();
+  const [{ passengers }, dispatch] = useStateValue();
   const [patient, setPatient] = useState<Passenger | undefined>();
 
   const { id } = useParams<{ id: string }>();
@@ -33,8 +33,8 @@ const PatientData: React.FC = () => {
       }
     };
 
-    if (patients[id] && patients[id].confirmNumber) {
-      setPatient(patients[id]);
+    if (passengers[id] && passengers[id].confirmNumber) {
+      setPatient(passengers[id]);
     } else {
       void fetchPatient();
     }

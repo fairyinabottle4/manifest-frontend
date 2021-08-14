@@ -10,7 +10,7 @@ import HealthRatingBar from "../components/HealthRatingBar";
 import { useStateValue } from "../state";
 
 const PatientListPage = () => {
-  const [{ patients }, dispatch] = useStateValue();
+  const [{ passengers }, dispatch] = useStateValue();
 
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | undefined>();
@@ -53,7 +53,7 @@ const PatientListPage = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {Object.values(patients).map((patient: Passenger) => (
+          {Object.values(passengers).map((patient: Passenger) => (
             <Table.Row key={patient.id}>
               <Table.Cell> <Link to={`/patients/${patient.id}`}>{patient.name}</Link> </Table.Cell>
               <Table.Cell>{patient.seatNumber}</Table.Cell>

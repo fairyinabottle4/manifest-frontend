@@ -39,19 +39,19 @@ export const reducer = (state: State, action: Action): State => {
     case "SET_PATIENT_LIST":
       return {
         ...state,
-        patients: {
+        passengers: {
           ...action.payload.reduce(
             (memo, patient) => ({ ...memo, [patient.id]: patient }),
             {}
           ),
-          ...state.patients
+          ...state.passengers
         }
       };
     case "ADD_PATIENT":
       return {
         ...state,
-        patients: {
-          ...state.patients,
+        passengers: {
+          ...state.passengers,
           [action.payload.id]: action.payload
         }
       };
