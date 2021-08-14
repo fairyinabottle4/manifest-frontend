@@ -3,10 +3,9 @@ import { Rating } from 'semantic-ui-react';
 
 type BarProps = {
   rating: number;
-  //firstTime: boolean
 };
 
-const HealthRatingBar = ({ rating }: BarProps) => {
+const AirlineRatingBar = ({ rating }: BarProps) => {
   return (
     <div className="health-bar">
       {<Rating icon="star" disabled rating={rating} maxRating={5} />}
@@ -14,4 +13,4 @@ const HealthRatingBar = ({ rating }: BarProps) => {
   );
 };
 
-export default HealthRatingBar;
+export default AirlineRatingBar;

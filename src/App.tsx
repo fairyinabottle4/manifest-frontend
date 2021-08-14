@@ -3,12 +3,12 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Button, Divider, Header, Container } from "semantic-ui-react";
 import Clock from 'react-live-clock';
-import PatientPage from './PassengerPage/PatientPage';
+import PassengerPage from './PassengerPage/PassengerPage';
 import { apiBaseUrl } from "./constants";
-import { useStateValue, setPatientList } from "./state";
+import { useStateValue, setPassengerList } from "./state";
 import { Passenger } from "./types";
 import { Formik, Field, Form } from "formik";
-import { TextField, SelectField } from "./AddPatientModal/FormField";
+import { TextField, SelectField } from "./AddPassengerModal/FormField";
 
 import PassengerListPage from "./PassengerListPage";
 
@@ -20,17 +20,17 @@ const App = () => {
   const [, dispatch] = useStateValue();
   React.useEffect(() => {
 
-    const fetchPatientList = async () => {
+    const fetchPassengerList = async () => {
       try {
         const { data: patientListFromApi } = await axios.get<Passenger[]>(
           `${apiBaseUrl}/passengers`
         );
-        dispatch(setPatientList(patientListFromApi));
+        dispatch(setPassengerList(patientListFromApi));
       } catch (e) {
         console.error(e);
       }
     };
-    void fetchPatientList();
+    void fetchPassengerList();
   }, [dispatch]);
 
   const onSubmit = (values: { origin: string; destination: string; aircraftType: string; flightNumber: string}) => {
@@ -65,7 +65,7 @@ const App = () => {
             <Divider hidden />
             <Switch>
               <Route path='/passengers/:id'>
-                <PatientPage />
+                <PassengerPage />
               </Route>
               <Route path="/">
                 <PassengerListPage />

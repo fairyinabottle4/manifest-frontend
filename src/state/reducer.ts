@@ -20,17 +20,10 @@ export type Action =
   };
 
 
-export const setPatientList = (patientList: Passenger[]): Action => {
+export const setPassengerList = (patientList: Passenger[]): Action => {
   return {
     type: 'SET_PATIENT_LIST',
     payload: patientList
-  };
-};
-
-export const setDiagnosisList = (diagnosisListFromApi: Diagnosis[]): Action => {
-  return {
-    type: 'SET_DIAGNOSIS_LIST',
-    payload: diagnosisListFromApi
   };
 };
 

@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 import { Container, Table, Button } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import { PassengerFormValues } from "../AddPatientModal/AddPatientForm";
-import AddPassengerModal from "../AddPatientModal";
+import { PassengerFormValues } from "../AddPassengerModal/AddPassengerForm";
+import AddPassengerModal from "../AddPassengerModal";
 import { Passenger } from "../types";
 import { apiBaseUrl } from "../constants";
-import HealthRatingBar from "../components/HealthRatingBar";
+import AirlineRatingBar from "../components/HealthRatingBar";
 import { useStateValue } from "../state";
 
 const PassengerListPage = () => {
@@ -22,14 +22,14 @@ const PassengerListPage = () => {
     setError(undefined);
   };
 
-  const submitNewPatient = async (values: PassengerFormValues) => {
+  const submitNewPassenger = async (values: PassengerFormValues) => {
     console.log(values);
     try {
-      const { data: newPatient } = await axios.post<Passenger>(
+      const { data: newPassenger } = await axios.post<Passenger>(
         `${apiBaseUrl}/passengers`,
         values
       );
-      dispatch({ type: "ADD_PATIENT", payload: newPatient });
+      dispatch({ type: "ADD_PATIENT", payload: newPassenger });
       closeModal();
     } catch (e) {
       console.error(e.response?.data || 'Unknown Error');
@@ -53,14 +53,14 @@ const PassengerListPage = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {Object.values(passengers).map((patient: Passenger) => (
-            <Table.Row key={patient.id}>
-              <Table.Cell> <Link to={`/patients/${patient.id}`}>{patient.name}</Link> </Table.Cell>
-              <Table.Cell>{patient.seatNumber}</Table.Cell>
-              <Table.Cell>{patient.travelClass}</Table.Cell>
-              <Table.Cell>{patient.dietaryRequirements}</Table.Cell>
+          {Object.values(passengers).map((passenger: Passenger) => (
+            <Table.Row key={passenger.id}>
+              <Table.Cell> <Link to={`/patients/${passenger.id}`}>{passenger.name}</Link> </Table.Cell>
+              <Table.Cell>{passenger.seatNumber}</Table.Cell>
+              <Table.Cell>{passenger.travelClass}</Table.Cell>
+              <Table.Cell>{passenger.dietaryRequirements}</Table.Cell>
               <Table.Cell>
-                <HealthRatingBar rating={patient.rating!}/>
+                <AirlineRatingBar rating={passenger.rating!}/>
               </Table.Cell>
             </Table.Row>
           ))}
@@ -68,7 +68,7 @@ const PassengerListPage = () => {
       </Table>
       <AddPassengerModal
         modalOpen={modalOpen}
-        onSubmit={submitNewPatient}
+        onSubmit={submitNewPassenger}
         error={error}
         onClose={closeModal}
       />

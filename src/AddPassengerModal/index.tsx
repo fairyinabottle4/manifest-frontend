@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, Segment } from 'semantic-ui-react';
 import AddPassengerForm, {
   PassengerFormValues,
-} from './AddPatientForm';
+} from './AddPassengerForm';
 
 interface Props {
   modalOpen: boolean;
