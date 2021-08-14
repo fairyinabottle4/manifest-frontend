@@ -1,9 +1,3 @@
-export interface Diagnosis {
-  code: string;
-  name: string;
-  latin?: string;
-}
-
 export enum travelClass {
   First = "first",
   Business = "business",

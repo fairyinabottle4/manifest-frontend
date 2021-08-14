@@ -22,10 +22,10 @@ const App = () => {
 
     const fetchPassengerList = async () => {
       try {
-        const { data: patientListFromApi } = await axios.get<Passenger[]>(
+        const { data: passengerListFromApi } = await axios.get<Passenger[]>(
           `${apiBaseUrl}/passengers`
         );
-        dispatch(setPassengerList(patientListFromApi));
+        dispatch(setPassengerList(passengerListFromApi));
       } catch (e) {
         console.error(e);
       }

@@ -6,7 +6,7 @@ import { PassengerFormValues } from "../AddPassengerModal/AddPassengerForm";
 import AddPassengerModal from "../AddPassengerModal";
 import { Passenger } from "../types";
 import { apiBaseUrl } from "../constants";
-import AirlineRatingBar from "../components/HealthRatingBar";
+import AirlineRatingBar from "../components/AirlineRatingBar";
 import { useStateValue } from "../state";
 
 const PassengerListPage = () => {
@@ -29,7 +29,7 @@ const PassengerListPage = () => {
         `${apiBaseUrl}/passengers`,
         values
       );
-      dispatch({ type: "ADD_PATIENT", payload: newPassenger });
+      dispatch({ type: "ADD_PASSENGER", payload: newPassenger });
       closeModal();
     } catch (e) {
       console.error(e.response?.data || 'Unknown Error');

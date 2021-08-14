@@ -14,20 +14,20 @@ import { apiBaseUrl } from '../constants';
 import { useStateValue } from '../state';
 import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
-const PatientData: React.FC = () => {
+const PassengerData: React.FC = () => {
   const [{ passengers }, dispatch] = useStateValue();
-  const [patient, setPassenger] = useState<Passenger | undefined>();
+  const [flyer, setPassenger] = useState<Passenger | undefined>();
 
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    const fetchPatient = async () => {
+    const fetchPassenger = async () => {
       try {
         const { data: passengerData } = await axios.get<Passenger>(
           `${apiBaseUrl}/passengers/${id}`
         );
         setPassenger(passengerData);
-        dispatch({ type: 'ADD_PATIENT', payload: passengerData });
+        dispatch({ type: 'ADD_PASSENGER', payload: passengerData });
       } catch (error) {
         console.log(error);
       }
@@ -36,7 +36,7 @@ const PatientData: React.FC = () => {
     if (passengers[id] && passengers[id].confirmNumber) {
       setPassenger(passengers[id]);
     } else {
-      void fetchPatient();
+      void fetchPassenger();
     }
   }, [id]);
 
@@ -66,24 +66,24 @@ const PatientData: React.FC = () => {
 
 
   //entries is optional hence the question mark
-  const totalEntries = patient?.entries?.length ?? 0;
+  const totalEntries = flyer?.entries?.length ?? 0;
 
   return (
     <>
-      {patient && (
+      {flyer && (
         <section>
           <Card>
-            <Card.Content header={patient.name} />
+            <Card.Content header={flyer.name} />
             <Card.Content extra>
-              <Icon name={freqFlyerIcon(patient.frequentFlyer)} />
-              {patient.confirmNumber}
+              <Icon name={freqFlyerIcon(flyer.frequentFlyer)} />
+              {flyer.confirmNumber}
             </Card.Content>
           </Card>
           {totalEntries > 0 && (
             <>
               <h2>Recent Flights</h2>
               <Segment>
-                {patient.entries.map((entry, index) =>
+                {flyer.entries.map((entry, index) =>
                   getEntryView(entry, index + 1 === totalEntries)
                 )}
               </Segment>
@@ -95,4 +95,4 @@ const PatientData: React.FC = () => {
   );
 };
 
-export default PatientData;
+export default PassengerData;
