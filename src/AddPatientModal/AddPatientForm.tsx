@@ -16,10 +16,10 @@ import {
  * use type Patient, but omit id and entries,
  * because those are irrelevant for new patient object.
  */
-export type PatientFormValues = Omit<Passenger, 'id' | 'entries'>;
+export type PassengerFormValues = Omit<Passenger, 'id' | 'entries'>;
 
 interface Props {
-  onSubmit: (values: PatientFormValues) => void;
+  onSubmit: (values: PassengerFormValues) => void;
   onCancel: () => void;
 }
 
@@ -68,16 +68,7 @@ const classOptions: TypeOption[] = [
   { value: travelClass.Economy, label: 'Economy'}
 ];
 
-
-// const isValidDate = (dateString: string): boolean => {
-//   const regEx = /^\d{4}-\d{2}-\d{2}$/;
-//   // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
-//   return dateString.match(regEx) != null;
-// };
-
-
-
-export const AddPatientForm: React.FC<Props> = ({ onSubmit, onCancel }) => {  
+export const AddPassengerForm: React.FC<Props> = ({ onSubmit, onCancel }) => {  
   return (
     <Formik
       initialValues={{
@@ -162,4 +153,4 @@ export const AddPatientForm: React.FC<Props> = ({ onSubmit, onCancel }) => {
   );
 };
 
-export default AddPatientForm;
+export default AddPassengerForm;

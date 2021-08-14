@@ -2,14 +2,14 @@ import React from "react";
 import axios from "axios";
 import { Container, Table, Button } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-import { PatientFormValues } from "../AddPatientModal/AddPatientForm";
-import AddPatientModal from "../AddPatientModal";
+import { PassengerFormValues } from "../AddPatientModal/AddPatientForm";
+import AddPassengerModal from "../AddPatientModal";
 import { Passenger } from "../types";
 import { apiBaseUrl } from "../constants";
 import HealthRatingBar from "../components/HealthRatingBar";
 import { useStateValue } from "../state";
 
-const PatientListPage = () => {
+const PassengerListPage = () => {
   const [{ passengers }, dispatch] = useStateValue();
 
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
@@ -22,7 +22,7 @@ const PatientListPage = () => {
     setError(undefined);
   };
 
-  const submitNewPatient = async (values: PatientFormValues) => {
+  const submitNewPatient = async (values: PassengerFormValues) => {
     console.log(values);
     try {
       const { data: newPatient } = await axios.post<Passenger>(
@@ -66,7 +66,7 @@ const PatientListPage = () => {
           ))}
         </Table.Body>
       </Table>
-      <AddPatientModal
+      <AddPassengerModal
         modalOpen={modalOpen}
         onSubmit={submitNewPatient}
         error={error}
@@ -77,4 +77,4 @@ const PatientListPage = () => {
   );
 };
 
-export default PatientListPage;
+export default PassengerListPage;

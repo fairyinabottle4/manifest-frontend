@@ -3,14 +3,14 @@ import axios from "axios";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Button, Divider, Header, Container } from "semantic-ui-react";
 import Clock from 'react-live-clock';
-import PatientPage from './PatientPage/PatientPage';
+import PatientPage from './PassengerPage/PatientPage';
 import { apiBaseUrl } from "./constants";
 import { useStateValue, setPatientList } from "./state";
 import { Passenger } from "./types";
 import { Formik, Field, Form } from "formik";
 import { TextField, SelectField } from "./AddPatientModal/FormField";
 
-import PatientListPage from "./PatientListPage";
+import PassengerListPage from "./PassengerListPage";
 
 const App = () => {
 
@@ -68,7 +68,7 @@ const App = () => {
                 <PatientPage />
               </Route>
               <Route path="/">
-                <PatientListPage />
+                <PassengerListPage />
               </Route>
             </Switch>
           </Container>
