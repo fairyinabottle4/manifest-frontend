@@ -23,7 +23,7 @@ const App = () => {
     const fetchPatientList = async () => {
       try {
         const { data: patientListFromApi } = await axios.get<Patient[]>(
-          `${apiBaseUrl}/patients`
+          `${apiBaseUrl}/passengers`
         );
         dispatch(setPatientList(patientListFromApi));
       } catch (e) {
@@ -64,7 +64,7 @@ const App = () => {
             <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Singapore'} />
             <Divider hidden />
             <Switch>
-              <Route path='/patients/:id'>
+              <Route path='/passengers/:id'>
                 <PatientPage />
               </Route>
               <Route path="/">

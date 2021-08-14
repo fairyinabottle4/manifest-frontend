@@ -26,7 +26,7 @@ const PatientListPage = () => {
     console.log(values);
     try {
       const { data: newPatient } = await axios.post<Patient>(
-        `${apiBaseUrl}/patients`,
+        `${apiBaseUrl}/passengers`,
         values
       );
       dispatch({ type: "ADD_PATIENT", payload: newPatient });

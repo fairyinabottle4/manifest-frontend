@@ -24,7 +24,7 @@ const PatientData: React.FC = () => {
     const fetchPatient = async () => {
       try {
         const { data: patientData } = await axios.get<Patient>(
-          `${apiBaseUrl}/patients/${id}`
+          `${apiBaseUrl}/passengers/${id}`
         );
         setPatient(patientData);
         dispatch({ type: 'ADD_PATIENT', payload: patientData });
