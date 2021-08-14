@@ -4,7 +4,7 @@ import { Container, Table, Button } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import { PatientFormValues } from "../AddPatientModal/AddPatientForm";
 import AddPatientModal from "../AddPatientModal";
-import { Patient } from "../types";
+import { Passenger } from "../types";
 import { apiBaseUrl } from "../constants";
 import HealthRatingBar from "../components/HealthRatingBar";
 import { useStateValue } from "../state";
@@ -25,7 +25,7 @@ const PatientListPage = () => {
   const submitNewPatient = async (values: PatientFormValues) => {
     console.log(values);
     try {
-      const { data: newPatient } = await axios.post<Patient>(
+      const { data: newPatient } = await axios.post<Passenger>(
         `${apiBaseUrl}/passengers`,
         values
       );
@@ -53,7 +53,7 @@ const PatientListPage = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {Object.values(patients).map((patient: Patient) => (
+          {Object.values(patients).map((patient: Passenger) => (
             <Table.Row key={patient.id}>
               <Table.Cell> <Link to={`/patients/${patient.id}`}>{patient.name}</Link> </Table.Cell>
               <Table.Cell>{patient.seatNumber}</Table.Cell>

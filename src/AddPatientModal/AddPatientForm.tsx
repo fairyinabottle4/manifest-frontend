@@ -8,7 +8,7 @@ import {
   TypeOption,
 } from './FormField';
 import {
-  Patient,
+  Passenger,
   travelClass
 } from '../types';
 
@@ -16,7 +16,7 @@ import {
  * use type Patient, but omit id and entries,
  * because those are irrelevant for new patient object.
  */
-export type PatientFormValues = Omit<Patient, 'id' | 'entries'>;
+export type PatientFormValues = Omit<Passenger, 'id' | 'entries'>;
 
 interface Props {
   onSubmit: (values: PatientFormValues) => void;

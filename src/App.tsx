@@ -6,7 +6,7 @@ import Clock from 'react-live-clock';
 import PatientPage from './PatientPage/PatientPage';
 import { apiBaseUrl } from "./constants";
 import { useStateValue, setPatientList } from "./state";
-import { Patient } from "./types";
+import { Passenger } from "./types";
 import { Formik, Field, Form } from "formik";
 import { TextField, SelectField } from "./AddPatientModal/FormField";
 
@@ -22,7 +22,7 @@ const App = () => {
 
     const fetchPatientList = async () => {
       try {
-        const { data: patientListFromApi } = await axios.get<Patient[]>(
+        const { data: patientListFromApi } = await axios.get<Passenger[]>(
           `${apiBaseUrl}/passengers`
         );
         dispatch(setPatientList(patientListFromApi));

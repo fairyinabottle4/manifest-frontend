@@ -11,7 +11,7 @@ export enum travelClass {
   Economy = "economy"
 }
 
-export interface Patient {
+export interface Passenger {
   id: string;
   name: string;
   seatNumber?: string;
