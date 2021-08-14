@@ -55,7 +55,7 @@ const PassengerListPage = () => {
         <Table.Body>
           {Object.values(passengers).map((passenger: Passenger) => (
             <Table.Row key={passenger.id}>
-              <Table.Cell> <Link to={`/patients/${passenger.id}`}>{passenger.name}</Link> </Table.Cell>
+              <Table.Cell> <Link to={`/passengers/${passenger.id}`}>{passenger.name}</Link> </Table.Cell>
               <Table.Cell>{passenger.seatNumber}</Table.Cell>
               <Table.Cell>{passenger.travelClass}</Table.Cell>
               <Table.Cell>{passenger.dietaryRequirements}</Table.Cell>

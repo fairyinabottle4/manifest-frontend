@@ -16,25 +16,25 @@ import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
 const PatientData: React.FC = () => {
   const [{ passengers }, dispatch] = useStateValue();
-  const [patient, setPatient] = useState<Passenger | undefined>();
+  const [patient, setPassenger] = useState<Passenger | undefined>();
 
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     const fetchPatient = async () => {
       try {
-        const { data: patientData } = await axios.get<Passenger>(
+        const { data: passengerData } = await axios.get<Passenger>(
           `${apiBaseUrl}/passengers/${id}`
         );
-        setPatient(patientData);
-        dispatch({ type: 'ADD_PATIENT', payload: patientData });
+        setPassenger(passengerData);
+        dispatch({ type: 'ADD_PATIENT', payload: passengerData });
       } catch (error) {
         console.log(error);
       }
     };
 
     if (passengers[id] && passengers[id].confirmNumber) {
-      setPatient(passengers[id]);
+      setPassenger(passengers[id]);
     } else {
       void fetchPatient();
     }

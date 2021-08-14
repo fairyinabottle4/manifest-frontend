@@ -13,8 +13,8 @@ import {
 } from '../types';
 
 /*
- * use type Patient, but omit id and entries,
- * because those are irrelevant for new patient object.
+ * use type Passenger, but omit id and entries,
+ * because those are irrelevant for new passenger object.
  */
 export type PassengerFormValues = Omit<Passenger, 'id' | 'entries'>;
 
