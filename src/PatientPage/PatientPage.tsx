@@ -9,9 +9,9 @@ import {
   Icon
 } from 'semantic-ui-react';
 
-import { Patient, Diagnosis, BaseEntry, FrequentFlyer} from '../types';
+import { Patient, BaseEntry, FrequentFlyer} from '../types';
 import { apiBaseUrl } from '../constants';
-import { useStateValue, setDiagnosisList } from '../state';
+import { useStateValue } from '../state';
 import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
 const PatientData: React.FC = () => {
@@ -33,22 +33,10 @@ const PatientData: React.FC = () => {
       }
     };
 
-    const fetchDiagnosisList = async () => {
-      try {
-        const { data: diagnosisListFromApi } = await axios.get<Diagnosis[]>(
-          `${apiBaseUrl}/diagnoses`
-        );
-        dispatch(setDiagnosisList(diagnosisListFromApi));
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
     if (patients[id] && patients[id].confirmNumber) {
       setPatient(patients[id]);
     } else {
       void fetchPatient();
-      void fetchDiagnosisList();
     }
   }, [id]);
 

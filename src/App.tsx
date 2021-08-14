@@ -5,8 +5,8 @@ import { Button, Divider, Header, Container } from "semantic-ui-react";
 import Clock from 'react-live-clock';
 import PatientPage from './PatientPage/PatientPage';
 import { apiBaseUrl } from "./constants";
-import { useStateValue, setPatientList, setDiagnosisList } from "./state";
-import { Patient, Diagnosis } from "./types";
+import { useStateValue, setPatientList } from "./state";
+import { Patient } from "./types";
 import { Formik, Field, Form } from "formik";
 import { TextField, SelectField } from "./AddPatientModal/FormField";
 
@@ -19,7 +19,6 @@ const App = () => {
   
   const [, dispatch] = useStateValue();
   React.useEffect(() => {
-    void axios.get<void>(`${apiBaseUrl}/ping`);
 
     const fetchPatientList = async () => {
       try {
@@ -32,17 +31,6 @@ const App = () => {
       }
     };
     void fetchPatientList();
-    const fetchDiagnosisList = async () => {
-      try {
-        const { data: diagnosisListFromApi } = await axios.get<Diagnosis[]>(
-          `${apiBaseUrl}/diagnoses`
-        );
-        dispatch(setDiagnosisList(diagnosisListFromApi));
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    void fetchDiagnosisList();
   }, [dispatch]);
 
   const onSubmit = (values: { origin: string; destination: string; aircraftType: string; flightNumber: string}) => {
